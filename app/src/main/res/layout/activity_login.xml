@@ -1,0 +1,183 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".LoginActivity">
+
+    <RelativeLayout
+        android:id="@+id/rlHead"
+        android:layout_width="match_parent"
+        android:layout_height="150dp"
+        android:background="@drawable/login_background"
+        android:backgroundTint="@color/RoseRed">
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_centerInParent="true"
+            android:layout_marginLeft="10dp"
+            android:layout_marginTop="20dp"
+            android:fontFamily="@font/godfont"
+            android:text="AKVP"
+            android:textColor="@color/white"
+            android:textSize="30dp" />
+
+
+    </RelativeLayout>
+
+
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/rlHead"
+        android:layout_marginTop="90dp">
+
+        <TextView
+            android:id="@+id/tvEmailTag"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginLeft="25dp"
+            android:layout_marginTop="20dp"
+            android:fontFamily="@font/openssansbold"
+            android:text="Email"
+            android:textColor="@color/Burgundy"
+            android:textSize="20dp" />
+
+        <RelativeLayout
+            android:id="@+id/rlEmail"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_below="@+id/tvEmailTag"
+            android:layout_margin="15dp"
+            android:background="@drawable/edittext_background"
+            android:backgroundTint="@color/MistyRose"
+            android:fontFamily="@font/openssanssemibold"
+            android:textColor="@color/black"
+            android:textSize="18dp">
+
+
+            <ImageView
+                android:id="@+id/ivUser"
+                android:layout_width="30dp"
+                android:layout_height="30dp"
+                android:layout_alignParentStart="true"
+                android:layout_centerInParent="true"
+                android:layout_marginLeft="10dp"
+                android:src="@drawable/baseline_person_24"
+                android:tint="@color/RoseRed"
+                tools:ignore="UseAppTint" />
+
+
+
+            <EditText
+                android:layout_toRightOf="@+id/ivUser"
+                android:id="@+id/edUserName"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_centerInParent="true"
+                android:layout_marginLeft="10dp"
+                android:layout_marginTop="20dp"
+                android:layout_marginRight="10dp"
+                android:backgroundTint="@color/MistyRose"
+                android:fontFamily="@font/roboblod"
+                android:hint="Email"
+                android:paddingLeft="5dp"
+                />
+        </RelativeLayout>
+
+
+        <TextView
+            android:id="@+id/tvPassTag"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_below="@id/rlEmail"
+            android:layout_marginLeft="25dp"
+            android:layout_marginTop="10dp"
+            android:fontFamily="@font/openssansbold"
+            android:text="Password"
+            android:textColor="@color/Burgundy"
+            android:textSize="20dp" />
+
+        <RelativeLayout
+            android:id="@+id/rlPass"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_below="@+id/tvPassTag"
+            android:layout_marginStart="15dp"
+            android:layout_marginTop="15dp"
+            android:layout_marginEnd="15dp"
+            android:layout_marginBottom="15dp"
+            android:background="@drawable/edittext_background"
+            android:backgroundTint="@color/MistyRose">
+
+
+
+            <ImageView
+                android:layout_width="30dp"
+                android:layout_height="30dp"
+                android:src="@drawable/baseline_lock_24"
+                android:layout_centerInParent="true"
+                android:tint="@color/RoseRed"
+                android:layout_marginLeft="10dp"
+                android:layout_alignParentStart="true"
+                android:id="@+id/ivLock"
+                tools:ignore="UseAppTint" />
+
+            <EditText
+                android:id="@+id/edPassword"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_centerInParent="true"
+                android:layout_marginLeft="8dp"
+                android:layout_marginTop="20dp"
+                android:layout_marginRight="8dp"
+                android:layout_toRightOf="@id/ivLock"
+                android:backgroundTint="@color/MistyRose"
+                android:fontFamily="@font/roboblod"
+                android:hint="Password"
+                android:inputType="textPassword"
+                android:paddingLeft="5dp"
+                />
+
+        </RelativeLayout>
+
+        <TextView
+            android:id="@+id/btnLogin"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_below="@id/rlPass"
+            android:layout_centerInParent="true"
+            android:layout_marginLeft="40dp"
+            android:layout_marginTop="20dp"
+            android:layout_marginRight="40dp"
+            android:background="@drawable/edittext_background"
+            android:backgroundTint="@color/DarkRed"
+            android:gravity="center"
+            android:minHeight="60dp"
+            android:text="Log in"
+            android:textColor="@color/white"
+            android:textSize="20dp" />
+
+        <TextView
+            android:id="@+id/tvCreateAc"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_below="@id/btnLogin"
+            android:layout_centerInParent="true"
+            android:layout_marginLeft="40dp"
+            android:layout_marginTop="20dp"
+            android:layout_marginRight="40dp"
+            android:background="@drawable/edittext_background"
+            android:backgroundTint="@color/darkolivegreen"
+            android:gravity="center"
+            android:minHeight="60dp"
+            android:text="Sign Up"
+            android:textColor="@color/white"
+            android:textSize="20dp" />
+
+
+    </RelativeLayout>
+
+</RelativeLayout>

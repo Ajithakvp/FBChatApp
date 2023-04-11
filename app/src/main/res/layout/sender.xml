@@ -1,0 +1,47 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:id="@+id/rlSender"
+    android:layout_height="wrap_content">
+
+    <TextView
+        android:id="@+id/msgsendertyp"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignParentRight="true"
+        android:layout_centerVertical="true"
+        android:layout_marginStart="5dp"
+        android:layout_marginLeft="10dp"
+        android:layout_marginTop="10dp"
+        android:layout_marginRight="10dp"
+        android:layout_marginBottom="5dp"
+        android:background="@drawable/textview_dialog"
+        android:backgroundTint="@color/red"
+        android:fontFamily="@font/lovely6"
+        android:gravity="center"
+        android:minHeight="60dp"
+        android:paddingLeft="10dp"
+        android:paddingRight="10dp"
+        android:text="Textview"
+        android:textColor="@color/white"
+        android:textSize="30dp" />
+
+    <TextView
+        android:id="@+id/tvTime"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_below="@id/msgsendertyp"
+        android:layout_alignParentRight="true"
+        android:visibility="gone"
+        android:layout_marginLeft="10dp"
+        android:layout_marginTop="15dp"
+        android:layout_marginRight="10dp"
+        android:layout_marginBottom="5dp"
+        android:fontFamily="@font/latest"
+        android:paddingLeft="10dp"
+        android:paddingRight="10dp"
+        android:text="12:23"
+        android:textColor="@color/blue"
+        android:textSize="15dp" />
+
+</RelativeLayout>

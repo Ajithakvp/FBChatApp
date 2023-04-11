@@ -1,0 +1,104 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@drawable/logoimg"
+   >
+
+    <RelativeLayout
+        android:id="@+id/rlHead"
+        android:layout_width="match_parent"
+
+        android:layout_height="wrap_content">
+
+
+        <TextView
+            android:id="@+id/tvUserName"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_centerInParent="true"
+            android:layout_marginLeft="10dp"
+            android:layout_marginTop="20dp"
+            android:fontFamily="@font/lovely5"
+            android:text="AKVP"
+            android:textColor="@color/Burgundy"
+            android:textSize="30dp" />
+
+        <ImageView
+            android:id="@+id/ivback"
+            android:layout_width="40dp"
+            android:layout_height="40dp"
+            android:layout_alignParentLeft="true"
+            android:layout_centerInParent="true"
+            android:layout_marginRight="10dp"
+            android:layout_marginBottom="30dp"
+            android:src="@drawable/baseline_arrow_circle_left_24"
+            android:tint="@color/GoldYellow"
+            tools:ignore="UseAppTint" />
+
+    </RelativeLayout>
+
+
+    <androidx.core.widget.NestedScrollView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_below="@id/rlHead">
+
+
+        <androidx.recyclerview.widget.RecyclerView
+            android:id="@+id/rvMsg"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginLeft="10dp"
+            android:paddingBottom="100dp"
+            android:layout_marginRight="10dp" />
+    </androidx.core.widget.NestedScrollView>
+
+
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_alignParentBottom="true"
+        android:layout_margin="15dp">
+
+
+        <RelativeLayout
+            android:id="@+id/rlTyping"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_toLeftOf="@+id/ivSend"
+            android:background="@drawable/edittext_background"
+            android:backgroundTint="@color/MistyRose"
+            android:fontFamily="@font/openssanssemibold"
+            android:textColor="@color/black"
+            android:textSize="18dp">
+
+            <EditText
+                android:id="@+id/edTyping"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_centerInParent="true"
+                android:layout_marginLeft="10dp"
+                android:layout_marginTop="20dp"
+                android:layout_marginRight="10dp"
+                android:backgroundTint="@color/MistyRose"
+                android:hint="Typing" />
+        </RelativeLayout>
+
+
+        <ImageView
+            android:id="@+id/ivSend"
+            android:layout_width="50dp"
+            android:layout_height="50dp"
+            android:layout_alignParentRight="true"
+            android:layout_centerInParent="true"
+            android:layout_marginLeft="8dp"
+            android:layout_marginRight="5dp"
+            android:layout_marginBottom="10dp"
+            android:src="@drawable/send" />
+
+    </RelativeLayout>
+
+</RelativeLayout>
