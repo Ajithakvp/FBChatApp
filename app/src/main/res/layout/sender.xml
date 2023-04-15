@@ -8,7 +8,6 @@
         android:id="@+id/msgsendertyp"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_alignParentRight="true"
         android:layout_centerVertical="true"
         android:layout_marginStart="5dp"
         android:layout_marginLeft="10dp"
@@ -16,15 +15,40 @@
         android:layout_marginRight="10dp"
         android:layout_marginBottom="5dp"
         android:background="@drawable/textview_dialog"
-        android:backgroundTint="@color/red"
+        android:backgroundTint="@color/pink"
         android:fontFamily="@font/lovely6"
         android:gravity="center"
         android:minHeight="60dp"
         android:paddingLeft="10dp"
+        android:layout_toLeftOf="@id/rlRead"
         android:paddingRight="10dp"
         android:text="Textview"
         android:textColor="@color/white"
         android:textSize="30dp" />
+
+    <RelativeLayout
+        android:id="@+id/rlRead"
+        android:layout_alignParentRight="true"
+        android:layout_marginTop="20dp"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content">
+
+    <ImageView
+        android:layout_width="30dp"
+        android:layout_height="30dp"
+        android:id="@+id/ivread"
+        android:visibility="gone"
+        android:src="@drawable/read_msg"/>
+
+        <ImageView
+            android:layout_width="30dp"
+            android:layout_height="30dp"
+            android:visibility="gone"
+            android:id="@+id/ivunread"
+            android:src="@drawable/unread_msg"/>
+
+    </RelativeLayout>
+
 
     <TextView
         android:id="@+id/tvTime"
@@ -37,11 +61,11 @@
         android:layout_marginTop="15dp"
         android:layout_marginRight="10dp"
         android:layout_marginBottom="5dp"
-        android:fontFamily="@font/latest"
+        android:fontFamily="@font/bold"
         android:paddingLeft="10dp"
         android:paddingRight="10dp"
-        android:text="12:23"
-        android:textColor="@color/blue"
-        android:textSize="15dp" />
+        android:text="12-23-23 :12:23"
+        android:textColor="@color/Radio"
+        android:textSize="10dp" />
 
 </RelativeLayout>

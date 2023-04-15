@@ -10,6 +10,7 @@ import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.ImageView;
 import android.widget.RelativeLayout;
 import android.widget.TextView;
 import android.widget.Toast;
@@ -17,16 +18,13 @@ import android.widget.Toast;
 import androidx.annotation.NonNull;
 import androidx.recyclerview.widget.RecyclerView;
 
+import com.google.android.gms.tasks.OnCompleteListener;
+import com.google.android.gms.tasks.Task;
 import com.google.firebase.auth.FirebaseAuth;
-import com.google.firebase.database.DataSnapshot;
-import com.google.firebase.database.DatabaseError;
 import com.google.firebase.database.DatabaseReference;
 import com.google.firebase.database.FirebaseDatabase;
-import com.google.firebase.database.Query;
-import com.google.firebase.database.ValueEventListener;
 
 import java.util.ArrayList;
-import java.util.HashMap;
 
 
 public class MsgAdapter extends RecyclerView.Adapter {
@@ -37,6 +35,7 @@ public class MsgAdapter extends RecyclerView.Adapter {
 
     FirebaseAuth auth;
     FirebaseDatabase database;
+
 
 
     int ITEM_SEND = 1;
@@ -61,7 +60,7 @@ public class MsgAdapter extends RecyclerView.Adapter {
     }
 
     @Override
-    public void onBindViewHolder(@NonNull RecyclerView.ViewHolder holder, @SuppressLint("RecyclerView") int position) {
+    public void onBindViewHolder(@NonNull RecyclerView.ViewHolder holder, @SuppressLint("RecyclerView") final int position) {
 
         auth = FirebaseAuth.getInstance();
 
@@ -78,6 +77,17 @@ public class MsgAdapter extends RecyclerView.Adapter {
         if (holder.getClass() == senderVierwHolder.class) {
             senderVierwHolder viewHolder = (senderVierwHolder) holder;
             viewHolder.msgtxt.setText(msgClass.getMessage());
+
+            if (msgClass.isSeen()==true){
+
+                viewHolder.ivread.setVisibility(View.VISIBLE);
+                viewHolder.ivunread.setVisibility(View.GONE);
+
+            }else {
+                viewHolder.ivread.setVisibility(View.GONE);
+                viewHolder.ivunread.setVisibility(View.VISIBLE);
+            }
+
             viewHolder.msgtxt.setOnClickListener(new View.OnClickListener() {
                 @Override
                 public void onClick(View view) {
@@ -97,13 +107,25 @@ public class MsgAdapter extends RecyclerView.Adapter {
                 @Override
                 public boolean onLongClick(View view) {
 
-                    Toast.makeText(activity, "Long", Toast.LENGTH_SHORT).show();
                     AlertDialog.Builder builder = new AlertDialog.Builder(activity,R.style.AlertDialogCustom);
                     builder.setTitle("Delete Message");
                     builder.setMessage("Are You Sure To Delete This Message");
                     builder.setPositiveButton("Delete", new DialogInterface.OnClickListener() {
                         @Override
                         public void onClick(DialogInterface dialog, int which) {
+
+                            DatabaseReference databaseReference = database.getReference().child("chat").child("message").child(msgClass.getMessage());
+                            databaseReference.removeValue().addOnCompleteListener(new OnCompleteListener<Void>() {
+                                @Override
+                                public void onComplete(@NonNull Task<Void> task) {
+                                    Toast.makeText(activity, "Long", Toast.LENGTH_SHORT).show();
+
+                                }
+                            });
+
+
+
+
 
                         }
                     });
@@ -175,12 +197,16 @@ public class MsgAdapter extends RecyclerView.Adapter {
 
         TextView msgtxt, tvTime;
         RelativeLayout rlSender;
+        ImageView ivread,ivunread;
 
         public senderVierwHolder(@NonNull View itemView) {
             super(itemView);
             msgtxt = itemView.findViewById(R.id.msgsendertyp);
             tvTime = itemView.findViewById(R.id.tvTime);
             rlSender = itemView.findViewById(R.id.rlSender);
+            ivunread=itemView.findViewById(R.id.ivunread);
+            ivread=itemView.findViewById(R.id.ivread);
+
 
 
         }

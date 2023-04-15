@@ -68,6 +68,7 @@ public class LoginActivity extends AppCompatActivity {
                                 if (task.isSuccessful()) {
                                     progressDialog.dismiss();
                                     PreferenceManger.setLoggedStatus(LoginActivity.this,true);
+                                    PreferenceManger.setloginID(LoginActivity.this,auth.getUid());
                                     Intent intent = new Intent(LoginActivity.this, ChatActivity.class);
                                     startActivity(intent);
                                     finish();
